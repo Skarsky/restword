@@ -1,1 +1,10 @@
-<h1>This is the home page</h1>
+<h1>RESTword</h1>
+
+<a href="/register">+</a>
+
+<% users.forEach(function(user) { %>
+<div>
+  <li><%= user.username %></li>
+  <a href="/login">Login</a>
+</div>
+<% }) %>

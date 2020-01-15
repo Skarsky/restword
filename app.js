@@ -28,7 +28,13 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.get("/", function(req, res) {
-  res.render("home");
+  User.find({}, function(e, users) {
+    if (e) {
+      console.log(e);
+    } else {
+      res.render("home", { users: users });
+    }
+  });
 });
 
 app.get("/secret", function(req, res) {
@@ -56,7 +62,7 @@ app.post("/register", function(req, res) {
         res.render("register");
       } else {
         passport.authenticate("local")(req, res, function() {
-          res.redirect("/secret");
+          res.redirect("/");
         });
       }
     }
@@ -70,7 +76,7 @@ app.get("/login", function(req, res) {
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/secret",
+    successRedirect: "/pairs",
     failureRedirect: "/login"
   }),
   function(req, res) {
