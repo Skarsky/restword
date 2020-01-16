@@ -39,16 +39,6 @@ app.get("/", function(req, res) {
   });
 });
 
-app.get("/secret", function(req, res) {
-  User.find({}, function(e, users) {
-    if (e) {
-      console.log(e);
-    } else {
-      res.render("secret", { users: users });
-    }
-  });
-});
-
 app.get("/register", function(req, res) {
   res.render("register");
 });
@@ -80,7 +70,7 @@ app.get("/login/:id", function(req, res) {
 app.post(
   "/login/:id",
   passport.authenticate("local", {
-    failureRedirect: "/login"
+    failureRedirect: "/"
   }),
   function(req, res) {
     var userID = req.params.id;
