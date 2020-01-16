@@ -5,6 +5,6 @@
 <% users.forEach(function(user) { %>
 <div>
   <li><%= user.username %></li>
-  <a href="/login">Login</a>
+  <a href="/login/<%= user._id %>">Login</a>
 </div>
 <% }) %>

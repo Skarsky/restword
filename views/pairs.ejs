@@ -1,0 +1,10 @@
+<a href="/<%=user._id%>/pairs/new">Add site</a>
+
+<% user.pairs.forEach(function(pair) { %>
+<div>
+  <li>
+    Website - <%= pair.website %>
+    <a href="/<%= user._id %>/pairs/<%= pair._id %>">View</a>
+  </li>
+</div>
+<% }) %>
