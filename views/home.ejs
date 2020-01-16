@@ -6,5 +6,8 @@
 <div>
   <li><%= user.username %></li>
   <a href="/login/<%= user._id %>">Login</a>
+  <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+  </form>
 </div>
 <% }) %>

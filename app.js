@@ -29,6 +29,11 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+/*
+user and auth routes below 
+*/
+
+// index
 app.get("/", function(req, res) {
   User.find({}, function(e, users) {
     if (e) {
@@ -81,6 +86,14 @@ app.post(
   }
 );
 
+app.delete("/users/:id", function(req, res) {
+  var userID = req.params.id;
+
+  User.findByIdAndRemove(userID, function(e) {
+    res.redirect("/");
+  });
+});
+
 app.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
@@ -90,9 +103,11 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-
-  res.redirect("/login");
 }
+
+/*
+pair routes below
+*/
 
 // index
 app.get("/:id/pairs", function(req, res) {
