@@ -216,8 +216,75 @@ app.get("/:id/pairs/:pair_id/edit", function(req, res) {
 app.put("/:id/pairs/:pair_id", function(req, res) {
   var userID = req.params.id;
   var pairID = req.params.pair_id;
+  var pairs = [];
 
-  User.findById(userID, function(e, foundUser) {});
+  User.findById(userID, function(e, foundUser) {
+    if (e) {
+      console.log(e);
+
+      res.redirect("/" + userID + "/pairs");
+    } else {
+      foundUser.pairs.forEach(function(pair) {
+        if (pair._id == pairID) {
+          pairs.push(req.body.pair);
+        } else {
+          pairs.push(pair);
+        }
+      });
+
+      User.findOneAndUpdate({ _id: userID }, { pairs: pairs }, function(
+        e,
+        updatedUser
+      ) {
+        if (e) {
+          console.log(e);
+
+          res.redirect("/" + userID + "/pairs");
+        } else {
+          console.log(pairs);
+
+          res.redirect("/" + userID + "/pairs");
+        }
+      });
+    }
+  });
+});
+
+// delete
+app.delete("/:id/pairs/:pair_id", function(req, res) {
+  var userID = req.params.id;
+  var pairID = req.params.pair_id;
+
+  User.findById(userID, function(e, foundUser) {
+    if (e) {
+      console.log(e);
+    } else {
+      var pairs = [];
+
+      foundUser.pairs.forEach(function(pair) {
+        if (pair._id == pairID) {
+          return; // similar to continue;
+        } else {
+          pairs.push(pair);
+        }
+      });
+
+      User.findOneAndUpdate({ _id: userID }, { pairs: pairs }, function(
+        e,
+        foundUser
+      ) {
+        if (e) {
+          console.log(e);
+
+          res.redirect("/" + userID + "/pairs");
+        } else {
+          console.log(foundUser.pairs);
+
+          res.redirect("/" + userID + "/pairs");
+        }
+      });
+    }
+  });
 });
 
 app.listen(port, function() {

@@ -3,3 +3,7 @@
 <p>This is your <%= website %> password - <%= password %></p>
 
 <a href="/<%= userID %>/pairs/<%= pairID %>/edit">Edit</a>
+
+<form action="/<%= userID %>/pairs/<%= pairID %>?_method=DELETE" method="POST">
+  <button>Delete</button>
+</form>
