@@ -1,3 +1,5 @@
+<%- include('./partials/header') %>
+
 <a href="/<%=user._id%>/pairs/new">Add site</a>
 
 <% user.pairs.forEach(function(pair) { %>
@@ -7,4 +9,7 @@
     <a href="/<%= user._id %>/pairs/<%= pair._id %>">View</a>
   </li>
 </div>
-<% }) %>
+
+<% }) %> 
+
+<%- include('./partials/footer') %>

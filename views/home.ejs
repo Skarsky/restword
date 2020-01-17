@@ -1,13 +1,33 @@
-<h1>RESTword</h1>
+<%- include('./partials/header') %>
 
-<a href="/register">+</a>
+<div class="ui main text container">
+  <div class="ui huge header">RESTword</div>
+  <p>
+    Users
+    <span
+      ><a href="/register">
+        <i class="add user icon"></i> </a
+    ></span>
+  </p>
+  <div class="ui attached segment">
+    <div class="ui divided items">
+      <% users.forEach(function(user) { %>
+      <div class="item">
+        <div class="content">
+          <a class="header"><%= user.username %></a>
 
-<% users.forEach(function(user) { %>
-<div>
-  <li><%= user.username %></li>
-  <a href="/login/<%= user._id %>">Login</a>
-  <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-    <button>Delete</button>
-  </form>
+          <div class="extra">
+            <a href="/login/<%= user._id %>">Login</a>
+
+            <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+              <button><i class="Minus Square Outline icon"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
 </div>
-<% }) %>
+
+<%- include('./partials/footer') %>

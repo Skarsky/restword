@@ -1,3 +1,5 @@
+<%- include('./partials/header') %>
+
 <h1>Hey <%= username %>!</h1>
 
 <p>This is your <%= website %> password - <%= password %></p>
@@ -7,3 +9,5 @@
 <form action="/<%= userID %>/pairs/<%= pairID %>?_method=DELETE" method="POST">
   <button>Delete</button>
 </form>
+
+<%- include('./partials/footer') %>

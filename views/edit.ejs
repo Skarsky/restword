@@ -1,3 +1,5 @@
+<%- include('./partials/header') %>
+
 <h1>Edit <%= website %></h1>
 
 <form action="/<%= userID %>/pairs/<%= pairID %>?_method=PUT" method="POST">
@@ -5,3 +7,5 @@
   <input type="password" name="pair[password]" placeholder="Password" />
   <input type="submit" />
 </form>
+
+<%- include('./partials/footer') %>

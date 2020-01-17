@@ -1,5 +1,9 @@
+<%- include('./partials/header') %>
+
 <form action="/<%= user._id %>/pairs" method="POST">
   <input type="text" name="pair[website]" placeholder="Website" />
   <input type="password" name="pair[password]" placeholder="Password" />
   <input type="submit" />
 </form>
+
+<%- include('./partials/footer') %>
