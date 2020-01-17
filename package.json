@@ -4,7 +4,8 @@
   "description": "RESTful password manager app for multiple users",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Anish Seeniraj",
   "license": "ISC",
