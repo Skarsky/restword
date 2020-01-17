@@ -5,7 +5,6 @@ var pairSchema = new mongoose.Schema({
   website: String,
   password: String
 });
-var Pair = mongoose.model("Pair", pairSchema);
 
 var userSchema = new mongoose.Schema({
   username: String,
