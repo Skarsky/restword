@@ -1,11 +1,24 @@
 <%- include('./partials/header') %>
 
-<h1>Edit <%= website %></h1>
+<div class="ui text container segment">
+  <h1></h1>
+  <div class="ui huge header">Edit <%= website %></div>
 
-<form action="/<%= userID %>/pairs/<%= pairID %>?_method=PUT" method="POST">
-  <input type="text" name="pair[website]" value="<%= website %>" />
-  <input type="password" name="pair[password]" placeholder="Password" />
-  <input type="submit" />
-</form>
+  <form
+    class="ui form"
+    action="/<%= userID %>/pairs/<%= pairID %>?_method=PUT"
+    method="POST"
+  >
+    <div class="field">
+      <label>Website/Application</label>
+      <input type="text" name="pair[website]" value="<%= website %>" />
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="pair[password]" placeholder="Password" />
+    </div>
+    <input class="ui big black basic button" type="submit" />
+  </form>
+</div>
 
 <%- include('./partials/footer') %>

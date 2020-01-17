@@ -1,11 +1,20 @@
 <%- include('./partials/header') %>
 
-<h1>Login</h1>
+<div class="ui text container segment">
+  <h1></h1>
+  <div class="ui huge header">Log In</div>
 
-<form action="/login/<%= id %>" method="POST">
-  <input type="text" name="username" placeholder="Username" />
-  <input type="password" name="password" placeholder="Password" />
-  <input type="submit" value="Login" />
-</form>
+  <form class="ui form" action="/login/<%= id %>" method="POST">
+    <div class="field">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Username" />
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password" />
+    </div>
+    <input class="ui big black basic button" type="submit" value="Login" />
+  </form>
+</div>
 
-<<%- include('./partials/footer') %>
+<%- include('./partials/footer') %>

@@ -1,6 +1,29 @@
 <%- include('./partials/header') %>
 
-<h1>Hey <%= username %>!</h1>
+<div class="ui main text container">
+  <div class="ui huge header">Hey <%= username %>!</div>
+  <h1>Hey <%= username %>!</h1>
+  <p id="show">
+    This is your <%= website %> password - <%= password %>
+  </p>
+  <div class="extra">
+    <a href="/<%= userID %>/pairs/<%= pairID %>/edit"
+      ><i class="edit outline icon"></i
+    ></a>
+
+    <form
+      action="/<%= userID %>/pairs/<%= pairID %>?_method=DELETE"
+      method="POST"
+      id="del-form"
+    >
+      <button id="del-btn">
+        <i class="minus square outline icon"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- <h1>Hey <%= username %>!</h1>
 
 <p>This is your <%= website %> password - <%= password %></p>
 
@@ -8,6 +31,6 @@
 
 <form action="/<%= userID %>/pairs/<%= pairID %>?_method=DELETE" method="POST">
   <button>Delete</button>
-</form>
+</form> -->
 
 <%- include('./partials/footer') %>

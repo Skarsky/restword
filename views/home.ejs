@@ -2,11 +2,11 @@
 
 <div class="ui main text container">
   <div class="ui huge header">RESTword</div>
-  <p>
+  <h1 id="main-header">RESTword</h1>
+  <p id="home-users-header">
     Users
     <span
-      ><a href="/register">
-        <i class="add user icon"></i> </a
+      ><a href="/register"> <i class="add user icon"></i> </a
     ></span>
   </p>
   <div class="ui attached segment">
@@ -19,8 +19,14 @@
           <div class="extra">
             <a href="/login/<%= user._id %>">Login</a>
 
-            <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-              <button><i class="Minus Square Outline icon"></i></button>
+            <form
+              action="/users/<%= user._id %>?_method=DELETE"
+              method="POST"
+              id="del-form"
+            >
+              <button id="del-btn">
+                <i class="minus square outline icon"></i>
+              </button>
             </form>
           </div>
         </div>

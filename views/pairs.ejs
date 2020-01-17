@@ -1,6 +1,31 @@
 <%- include('./partials/header') %>
 
-<a href="/<%=user._id%>/pairs/new">Add site</a>
+<div class="ui main text container">
+  <h1></h1>
+  <h1></h1>
+  <p id="home-users-header">
+    Website/Applications
+    <span
+      ><a href="/<%=user._id%>/pairs/new"> <i class="plus icon"></i> </a
+    ></span>
+  </p>
+  <div class="ui attached segment">
+    <div class="ui divided items">
+      <% user.pairs.forEach(function(pair) { %>
+      <div class="item">
+        <div class="content">
+          <a class="header"><%= pair.website %></a>
+          <a href="/<%= user._id %>/pairs/<%= pair._id %>"
+            ><i class="eye icon"></i
+          ></a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<!-- <a href="/<%=user._id%>/pairs/new">Add site</a>
 
 <% user.pairs.forEach(function(pair) { %>
 <div>
@@ -8,8 +33,6 @@
     Website - <%= pair.website %>
     <a href="/<%= user._id %>/pairs/<%= pair._id %>">View</a>
   </li>
-</div>
+</div> -->
 
-<% }) %> 
-
-<%- include('./partials/footer') %>
+<% }) %> <%- include('./partials/footer') %>
