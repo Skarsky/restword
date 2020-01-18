@@ -13,10 +13,26 @@ var express = require("express"),
 var pairRoutes = require("./routes/pairs"),
   indexRoutes = require("./routes/index");
 
-// connect to database
-mongoose.connect("mongodb://localhost:27017/restword", {
-  useNewUrlParser: true
-});
+// connect to database (local)
+// mongoose.connect("mongodb://localhost:27017/restword", {
+//   useNewUrlParser: true
+// });
+
+// connect to database (mongodb atlas)
+mongoose
+  .connect(
+    "mongodb+srv:dbUser:dbUserPassword@cluster0-0fzgy.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      userCreateIndex: true
+    }
+  )
+  .then(() => {
+    console.log("Connected to the database!");
+  })
+  .catch(err => {
+    console.log("Error - ", err.message);
+  });
 
 // config
 app.set("view engine", "ejs");
