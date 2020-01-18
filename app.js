@@ -21,7 +21,7 @@ var pairRoutes = require("./routes/pairs"),
 // connect to database (mongodb atlas)
 mongoose
   .connect(
-    "mongodb+srv:dbUser:dbUserPassword@cluster0-0fzgy.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb+srv://dbUser:<password>@cluster0-0fzgy.mongodb.net/test?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       userCreateIndex: true
