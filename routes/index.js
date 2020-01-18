@@ -65,7 +65,11 @@ router.delete("/users/:id", function(req, res) {
   var userID = req.params.id;
 
   User.findByIdAndRemove(userID, function(e) {
-    res.redirect("/");
+    if (e) {
+      console.log(e);
+    } else {
+      res.redirect("/");
+    }
   });
 });
 
